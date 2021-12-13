@@ -1,0 +1,26 @@
+{
+  "name": "movimusify_react_and_express_fullstack",
+  "version": "1.0.0",
+  "description": "The backend of an app that serves APIs w/ Music, Movies, and more.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimanicharles911/movimusify_react_and_express_fullstack.git"
+  },
+  "author": "Charles Kimani & Emmethub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimanicharles911/movimusify_react_and_express_fullstack/issues"
+  },
+  "homepage": "https://github.com/kimanicharles911/movimusify_react_and_express_fullstack#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "nodemon": "^2.0.15"
+  }
+}
