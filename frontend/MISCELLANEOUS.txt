@@ -1,0 +1,25 @@
+Recommended default installations
+==================================>
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-brands-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/react-fontawesome
+npm i --save bootstrap
+npm i --save font-awesome
+npm i --save npm i --save react-bootstrap
+npm i --save react-router-bootstrap
+npm i --save jquery
+npm i --save popper.js
+
+
+<p className="card-text"><small className="text-muted">Like<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeartRegular} className="font-awesome-icon-component"/></a></small></p>
+
+<p className="card-text"><small className="text-muted">Unlike<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeart} className="font-awesome-icon-component"/></a></small></p>
+
+<span>&nbsp;|</span>
+<span>&nbsp;|</span>
+
+<span>&nbsp;|&nbsp;</span>
+                  <span>&nbsp;|&nbsp;</span>
+                  <p className="card-text"><small className="text-muted">Unlike<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeart} className="font-awesome-icon-component" /></a></small></p>

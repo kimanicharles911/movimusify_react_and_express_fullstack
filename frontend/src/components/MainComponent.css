@@ -1,0 +1,31 @@
+#search-btn{
+  border-radius: 0.25rem;
+  color: #fff;
+  background-color: #008075;
+  border-color: #008075;
+}
+#filters-section > .btn{
+  color: #6c757d;
+  background-color: #fff;
+  box-shadow: none;
+}
+#filters-section > .trial-btn{
+  color: #fff;
+  background-color: #008075;
+  box-shadow: none;
+}
+.card-body > .card-text, .card-body > .card-text > .text-muted > .like-icons{
+  display: inline-block;
+}
+.like-icons{
+  color: inherit;
+}
+.font-awesome-icon-component{
+  color: #6c757d;
+}
+.like-icons > .fas{
+  color: #008075;
+}
+.like-icons:hover{
+  color: inherit;
+}
