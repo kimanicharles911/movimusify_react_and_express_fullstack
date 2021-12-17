@@ -16,11 +16,13 @@ app.use(
   })
 )
 
-// this is just dummy api testing code (line 20 - 26)
 app.get('/api', (req, res) => {
-  axios.get('https://itunes.apple.com/search?term=jack+johnson')
-    .then((res) => {
-      console.log(res.data);
+  const url = "https://itunes.apple.com/search?term=jack+johnson";
+  axios.get(url)
+    .then((response) => {
+      return res.json(response.data);
+    }).catch(err => {
+      return res.status(404).send("An error occurred while fetching in the backend.");
     })
 })
 // https://itunes.apple.com/search?term=jack+johnson
