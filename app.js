@@ -16,9 +16,9 @@ app.use(
   })
 )
 
-app.get('/api', (req, res) => {
-  const url = "https://itunes.apple.com/search?term=jack+johnson";
-  axios.get(url)
+app.get('/search', (req, res) => {
+  const urlPrefix = "https://itunes.apple.com/search?term=";
+  axios.get(urlPrefix + req.query.term)
     .then((response) => {
       return res.json(response.data);
     }).catch(err => {

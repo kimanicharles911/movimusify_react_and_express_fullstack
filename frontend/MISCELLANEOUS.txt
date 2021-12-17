@@ -25,6 +25,17 @@ npm i --save popper.js
                   <p className="card-text"><small className="text-muted">Unlike<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeart} className="font-awesome-icon-component" /></a></small></p>
 =============================================================
 
+
+
+
+
+
+
+
+
+
+
+
 https://itunes.apple.com/search?term=jack+johnson
 
 https://itunes.apple.com/search?term=jack+johnson&limit=25
@@ -32,6 +43,36 @@ https://itunes.apple.com/search?term=jack+johnson&limit=25
 https://itunes.apple.com/search?term=jack+johnson&entity=musicVideo
 
 https://itunes.apple.com/search?term=jim+jones&country=ca
+
+
+https://itunes.apple.com/search?term=jack+johnson&media=movie
+
+https://itunes.apple.com/search?term=jack+johnson&media=movie&media=podcast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================
 
 https://itunes.apple.com/lookup?id=909253
 

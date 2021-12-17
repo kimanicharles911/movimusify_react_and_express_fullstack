@@ -8,9 +8,10 @@ import {useState} from 'react';
 const MainComponent = () => {
 
   const dummyFunc = async() => {
+    const randomString = "hillsong";
     let dataArr;
     try{
-      const res = await fetch('/api');
+      const res = await fetch('/search/?term='+ randomString);
       dataArr = await res.json();
       console.log('dataArr ', dataArr);
     }catch(err){
