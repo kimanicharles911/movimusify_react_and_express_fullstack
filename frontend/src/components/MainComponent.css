@@ -29,3 +29,8 @@
 .like-icons:hover{
   color: inherit;
 }
+#spinner-border{
+  border-top-color: #008075;
+  border-bottom-color: #008075;
+  border-left-color: #008075;
+}
