@@ -7,16 +7,30 @@ import {useState} from 'react';
 
 const MainComponent = () => {
 
-  const dummyFunc = async() => {
-    const randomString = "hillsong";
-    let dataArr;
-    try{
-      const res = await fetch('/search/?term='+ randomString);
-      dataArr = await res.json();
-      console.log('dataArr ', dataArr);
-    }catch(err){
-      console.error('err ',err);
-      dataArr = [];
+  const [searchStore, setSearchStore] = useState({
+    typedInput: '',
+  });
+
+  const typedInputChangeHandler = (event) => {
+    setSearchStore((prevState) => {
+      return{
+        ...prevState,
+        typedInput: event.target.value
+      }
+    })
+  };
+
+  const searchFunc = async() => {
+    if(searchStore.typedInput){
+      let dataArr;
+      try{
+        const res = await fetch('/search/?term='+ searchStore.typedInput);
+        dataArr = await res.json();
+        console.log('dataArr ', dataArr);
+      }catch(err){
+        console.error('err ',err);
+        dataArr = [];
+      }
     }
   };
 
@@ -25,9 +39,9 @@ const MainComponent = () => {
       <section className="row justify-content-md-start mt-3 mb-3 gy-3">
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon1">What</span>
-          <input type="text" className="form-control" placeholder="movie, music, podcast, audiobook, short film, TV show, software, ebook" aria-label="" aria-describedby="basic-addon1" />
+          <input type="text" className="form-control" placeholder="movie, music, podcast, audiobook, short film, TV show, software, ebook" aria-label="" aria-describedby="basic-addon1" value={searchStore.typedInput} onChange={typedInputChangeHandler}/>
           &nbsp;
-          <button className="btn" id="search-btn" onClick={() => dummyFunc()}>SEARCH</button>
+          <button className="btn" id="search-btn" onClick={() => searchFunc()}>SEARCH</button>
         </div>
       </section>
       <section id="filters-section">

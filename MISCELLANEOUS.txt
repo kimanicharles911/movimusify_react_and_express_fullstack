@@ -16,6 +16,8 @@ https://youtu.be/ZbtZ_79UmjI
 npm i --save axios
 npm i --save stream
 
+Before Saturday 18/12/21
+==========================>
 
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
 https://www.google.com/search?q=handling+external+api+with+express&oq=handling+external+api+with+express&aqs=chrome.0.69i59j69i60.9174j0j7&sourceid=chrome&ie=UTF-8
@@ -29,3 +31,12 @@ https://www.google.com/search?q=handling+third+party+api+with+express&oq=handlin
 https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack
 https://www.google.com/search?q=using+axios+in+express&oq=using+axios+in+express&aqs=chrome..69i57.4756j0j7&sourceid=chrome&ie=UTF-8
 https://stackoverflow.com/questions/53846709/how-do-i-use-axios-within-expressjs
+
+Saturday 18/12/21
+==================>
+https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack/blob/master/app.js
+https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack/blob/master/frontend/src/components/modals/EditModalComponent.jsx
+https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack/blob/master/frontend/src/components/MainComponent.jsx
+https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack/blob/master/frontend/src/components/modals/EditModalComponent.jsx
+http://localhost:3000/
