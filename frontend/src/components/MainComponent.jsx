@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './MainComponent.css';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 const MainComponent = () => {
 
@@ -32,10 +32,10 @@ const MainComponent = () => {
         clickedFilter: `&media=${filterBtn}`
       }
     })
-    // searchFunc();
+    searchFunc(filterBtn);
   };
 
-  const searchFunc = async() => {
+  const searchFunc = async(filterBtn = false) => {
     if(searchStore.typedInput){
       const arrFromInput = [];
       searchStore.typedInput.split('').map(arrItem => {
@@ -46,11 +46,17 @@ const MainComponent = () => {
       setSpin(true);
       let dataArr;
       try{
-        const res = await fetch('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
+        let res;
+        if(filterBtn === false){
+          res = await fetch('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
+        }else{
+          res = await fetch('/search/?term='+ modifiedTypedInput + '&media=' + filterBtn);
+        }
         let data = await res.json();
         dataArr = data.results;
         console.log('dataArr ', dataArr);
         console.log('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
+        console.log('/search/?term='+ modifiedTypedInput + '&media=' + filterBtn);
       }catch(err){
         console.error('err ',err);
         dataArr = [];
@@ -80,18 +86,31 @@ const MainComponent = () => {
         </div>
       </section>
       <section id="filters-section">
-        <p>Click to Apply Filters</p>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("movie")}}>movie</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("music")}}>music</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("musicVideo")}}>music video</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("podcast")}}>podcast</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("audiobook")}}>audiobook</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("shortFilm")}}>short film</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("tvShow")}}>TV show</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("software")}}>software</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("ebook")}}>ebook</button>
-        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("all")}}>All</button>
-        <button className={filterBtnStyling + " trial-btn"} onClick={() => {}}>Trial</button>
+        <p>Click to Apply Filters jack johnson</p>
+        <div className="btn-group" id="btn-group" role="group">
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioMovie"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioMovie" onClick={() => {filterBtnClickHandler("movie")}}>movie</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioMusic"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioMusic" onClick={() => {filterBtnClickHandler("music")}}>music</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioMusicVideo"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioMusicVideo" onClick={() => {filterBtnClickHandler("musicVideo")}}>music video</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioPodcast"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioPodcast" onClick={() => {filterBtnClickHandler("podcast")}}>podcast</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioAudiobook"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioAudiobook" onClick={() => {filterBtnClickHandler("audiobook")}}>audiobook</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioShortFilm"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioShortFilm" onClick={() => {filterBtnClickHandler("shortFilm")}}>short film</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioTvShow"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioTvShow" onClick={() => {filterBtnClickHandler("tvShow")}}>TV show</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioSoftware"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioSoftware" onClick={() => {filterBtnClickHandler("software")}}>software</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioEbook"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioEbook" onClick={() => {filterBtnClickHandler("ebook")}}>ebook</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioAll"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioAll" onClick={() => {filterBtnClickHandler("all")}}>All</label>
+          <input type="radio" className="btn-check" name="btnradio" id="btnradioTrial"/>
+          <label className={filterBtnStyling}  htmlFor="btnradioTrial" onClick={() => {}}>Trial</label>
+        </div>
       </section>
       <hr />
       <section className="row justify-content-md-center mt-3 mb-3 gy-3">
