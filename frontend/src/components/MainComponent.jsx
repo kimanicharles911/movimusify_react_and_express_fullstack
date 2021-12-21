@@ -6,17 +6,14 @@ import {useState, useEffect} from 'react';
 
 const MainComponent = () => {
 
+  // https://itunes.apple.com/search?term=jack+johnson&media=movie
+  const filterBtnStyling = "btn btn-outline-secondary btn-sm mb-1 mx-1";
   const [searchStore, setSearchStore] = useState({
     typedInput: '',
+    clickedFilter: '',
   });
   const [apiData, setApiData] = useState([]);
   const [spin, setSpin] = useState(false);
-
-  useEffect(() => {
-    apiData.map((dataPoint) => {
-      console.log(`😜`, dataPoint.artistName);
-    })
-  }, [apiData])
 
   const typedInputChangeHandler = (event) => {
     setSpin(false);
@@ -28,15 +25,32 @@ const MainComponent = () => {
     })
   };
 
+  const filterBtnClickHandler = (filterBtn) => {
+    setSearchStore((prevState) => {
+      return{
+        ...prevState,
+        clickedFilter: `&media=${filterBtn}`
+      }
+    })
+    // searchFunc();
+  };
+
   const searchFunc = async() => {
     if(searchStore.typedInput){
+      const arrFromInput = [];
+      searchStore.typedInput.split('').map(arrItem => {
+        if(arrItem === ' ') arrItem = '+';
+        arrFromInput.push(arrItem);
+      })
+      let modifiedTypedInput = arrFromInput.join('');
       setSpin(true);
       let dataArr;
       try{
-        const res = await fetch('/search/?term='+ searchStore.typedInput);
+        const res = await fetch('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
         let data = await res.json();
         dataArr = data.results;
         console.log('dataArr ', dataArr);
+        console.log('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
       }catch(err){
         console.error('err ',err);
         dataArr = [];
@@ -45,6 +59,8 @@ const MainComponent = () => {
       setSpin(false);
     }
   };
+  // https://itunes.apple.com/search?term=jack+johnson&media=movie
+  // jack johnson
 
   return (
     <main className="container fluid text-center">
@@ -65,16 +81,17 @@ const MainComponent = () => {
       </section>
       <section id="filters-section">
         <p>Click to Apply Filters</p>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">movie</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">music</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">podcast</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">audiobook</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">short film</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">TV show</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">software</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">ebook</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1">All</button>
-        <button className="btn btn-outline-secondary btn-sm mb-1 mx-1 trial-btn">Trial</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("movie")}}>movie</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("music")}}>music</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("musicVideo")}}>music video</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("podcast")}}>podcast</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("audiobook")}}>audiobook</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("shortFilm")}}>short film</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("tvShow")}}>TV show</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("software")}}>software</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("ebook")}}>ebook</button>
+        <button className={filterBtnStyling} onClick={() => {filterBtnClickHandler("all")}}>All</button>
+        <button className={filterBtnStyling + " trial-btn"} onClick={() => {}}>Trial</button>
       </section>
       <hr />
       <section className="row justify-content-md-center mt-3 mb-3 gy-3">
@@ -112,7 +129,7 @@ const MainComponent = () => {
             <div className="spinner-border" id="spinner-border" role="status">
               <span className="visually-hidden">Loading..</span>
             </div>
-            : null
+            : "Search results will appear here"
         }
       </section >
     </main >

@@ -31,7 +31,7 @@ const NavbarComponent = () => {
                     <Nav.Link href="https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack" target="_blank" id="nav-link-class"><FontAwesomeIcon icon={faHeart} className="font-awesome-icons" id="heart-icon"/>&nbsp;Favourites</Nav.Link>
                     
                     {/* Github Repository Link Button */}
-                    <Nav.Link href="https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack" target="_blank" id="nav-link-class"><FontAwesomeIcon icon={faGithub} className="font-awesome-icons" id="github-icon"/>&nbsp;GitHub</Nav.Link>
+                    <Nav.Link href="https://github.com/kimanicharles911/movimusify_react_and_express_fullstack" target="_blank" id="nav-link-class"><FontAwesomeIcon icon={faGithub} className="font-awesome-icons" id="github-icon"/>&nbsp;GitHub</Nav.Link>
                   </ul>
                 </Nav>
               </Row>

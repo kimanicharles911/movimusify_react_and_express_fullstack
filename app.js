@@ -17,8 +17,9 @@ app.use(
 )
 
 app.get('/search', (req, res) => {
-  const urlPrefix = "https://itunes.apple.com/search?term=";
-  axios.get(urlPrefix + req.query.term)
+  // const urlPrefix = "https://itunes.apple.com/search?term=";
+  const urlPrefix = `https://itunes.apple.com/search?term=${req.query.term}&media=${req.query.media ? req.query.media : ''}`;
+  axios.get(urlPrefix)
     .then((response) => {
       return res.json(response.data);
     }).catch(err => {
