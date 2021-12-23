@@ -37,3 +37,6 @@
   border-bottom-color: #008075;
   border-left-color: #008075;
 }
+.small-like-tag{
+  cursor: pointer;
+}

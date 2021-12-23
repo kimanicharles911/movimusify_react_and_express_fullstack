@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './MainComponent.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const MainComponent = () => {
 
@@ -13,6 +13,7 @@ const MainComponent = () => {
     clickedFilter: '',
   });
   const [apiData, setApiData] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const [spin, setSpin] = useState(false);
 
   const typedInputChangeHandler = (event) => {
@@ -65,6 +66,29 @@ const MainComponent = () => {
       setSpin(false);
     }
   };
+
+  const likeUnlikeFunc = (dataIndex) => {
+    if(favourites.length > 0){
+      if(!favourites.includes(apiData[dataIndex])){
+        setFavourites((prevState) => {
+          return[
+            ...prevState,
+            apiData[dataIndex]
+          ]
+        })
+      }
+    }else{
+      setFavourites((prevState) => {
+        return[
+          ...prevState,
+          apiData[dataIndex]
+        ]
+      })
+    }
+  };
+  useEffect(() => {
+    console.log(`favourites`, favourites);
+  }, [favourites])
   // https://itunes.apple.com/search?term=jack+johnson&media=movie
   // jack johnson
 
@@ -87,7 +111,7 @@ const MainComponent = () => {
       </section>
       <section id="filters-section">
         <p>Click to Apply Filters jack johnson</p>
-        <div className="btn-group" id="btn-group" role="group">
+        <div className="btn-group flex-wrap" id="btn-group" role="group">
           <input type="radio" className="btn-check" name="btnradio" id="btnradioMovie"/>
           <label className={filterBtnStyling}  htmlFor="btnradioMovie" onClick={() => {filterBtnClickHandler("movie")}}>movie</label>
           <input type="radio" className="btn-check" name="btnradio" id="btnradioMusic"/>
@@ -132,7 +156,7 @@ const MainComponent = () => {
                         <br/>
                         <p className="card-text"><small className="text-muted">Kind: {dataPoint.kind}</small></p>
                         <span>&nbsp;|&nbsp;</span>
-                        <p className="card-text"><small className="text-muted">Like<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeartRegular} className="font-awesome-icon-component" /></a></small></p>
+                        <p className="card-text"><small className="text-muted small-like-tag" onClick={() => likeUnlikeFunc(index) }>{dataPoint.likeStatus ?  'Unlike' : 'Like'}<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeartRegular} className="font-awesome-icon-component" /></a></small></p>
                         <p className="card-text">Description: {dataPoint.description ? dataPoint.description : null } {dataPoint.description === undefined && dataPoint.shortDescription ? dataPoint.shortDescription : "Not available." } </p>
                         <br />
                         <p className="card-text">Long Description: {dataPoint.longDescription ? dataPoint.longDescription : "Not available." }</p>
