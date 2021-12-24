@@ -6,6 +6,7 @@ a{
 #brand-id{
   font-family: 'Permanent Marker', cursive;
   color: #fff;
+  text-decoration: none;
 }
 /* Applied the white color to the Application's name on hover. */
 .navbar-brand:hover{
@@ -31,6 +32,9 @@ a{
 /* Assigned a white color to all hyper links in the navbar */
 #nav-link-class{
   color: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-decoration: none;
 }
 /* .buttons{
   display: flex;

@@ -14,6 +14,7 @@ npm i --save popper.js
 
 custom installs
 ================
+npm i --save react-router-dom
 
 <p className="card-text"><small className="text-muted">Like<a href="#" type="button" className="nav-link like-icons"><FontAwesomeIcon icon={faHeartRegular} className="font-awesome-icon-component"/></a></small></p>
 

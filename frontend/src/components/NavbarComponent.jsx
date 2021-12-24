@@ -3,6 +3,7 @@ import {Navbar, Container, Nav, Row} from 'react-bootstrap';
 import './NavbarComponent.css';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {Link} from 'react-router-dom';
 
 /* 
   * I imported the Navbar, Container, Nav, Row components from react-bootstrap.
@@ -18,7 +19,9 @@ const NavbarComponent = () => {
       <Navbar className="nav-class" expand="sm">
         <Container fluid>
           {/* Application Name */}
-          <Navbar.Brand href="#" id="brand-id">MOVIMUSIFY</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/" id="brand-id">MOVIMUSIFY</Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" id="navbar-toggler" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Container>
@@ -28,7 +31,9 @@ const NavbarComponent = () => {
                   </ul>
                   <ul className="d-flex navbar-nav me-2 mb-2 mb-sm-0">
                     {/* Favourites Link */}
-                    <Nav.Link href="https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack" target="_blank" id="nav-link-class"><FontAwesomeIcon icon={faHeart} className="font-awesome-icons" id="heart-icon"/>&nbsp;Favourites</Nav.Link>
+                    <Link to="/favourites" id="nav-link-class">
+                      <FontAwesomeIcon icon={faHeart} className="font-awesome-icons" id="heart-icon"/>&nbsp;Favourites
+                    </Link>
                     
                     {/* Github Repository Link Button */}
                     <Nav.Link href="https://github.com/kimanicharles911/movimusify_react_and_express_fullstack" target="_blank" id="nav-link-class"><FontAwesomeIcon icon={faGithub} className="font-awesome-icons" id="github-icon"/>&nbsp;GitHub</Nav.Link>
