@@ -4,7 +4,7 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './MainComponent.css';
 import {useState, useEffect} from 'react';
 
-const MainComponent = () => {
+const MainComponent = ({favouritesProp, setFavouritesProp}) => {
 
   // https://itunes.apple.com/search?term=jack+johnson&media=movie
   const filterBtnStyling = "btn btn-outline-secondary btn-sm mb-1 mx-1";
@@ -13,7 +13,6 @@ const MainComponent = () => {
     clickedFilter: '',
   });
   const [apiData, setApiData] = useState([]);
-  const [favourites, setFavourites] = useState([]);
   const [spin, setSpin] = useState(false);
 
   const typedInputChangeHandler = (event) => {
@@ -68,27 +67,35 @@ const MainComponent = () => {
   };
 
   const likeUnlikeFunc = (dataIndex) => {
-    if(favourites.length > 0){
-      if(!favourites.includes(apiData[dataIndex])){
-        setFavourites((prevState) => {
+    if(favouritesProp.length > 0){
+      if(!favouritesProp.includes(apiData[dataIndex])){
+        setFavouritesProp((prevState) => {
           return[
             ...prevState,
             apiData[dataIndex]
           ]
         })
+
+        apiData[dataIndex].likeStatus = true;
+      }else{
+        const newFavouritesArr = favouritesProp.filter(favourite => favourite !== apiData[dataIndex]);
+        setFavouritesProp(newFavouritesArr);
+        apiData[dataIndex].likeStatus = false;
       }
     }else{
-      setFavourites((prevState) => {
+      setFavouritesProp((prevState) => {
         return[
           ...prevState,
           apiData[dataIndex]
         ]
       })
+
+      apiData[dataIndex].likeStatus = true;
     }
   };
   useEffect(() => {
-    console.log(`favourites`, favourites);
-  }, [favourites])
+    console.log(`favouritesProp`, favouritesProp);
+  }, [favouritesProp])
   // https://itunes.apple.com/search?term=jack+johnson&media=movie
   // jack johnson
 
@@ -174,7 +181,7 @@ const MainComponent = () => {
             </div>
             : "Search results will appear here"
         }
-      </section >
+      </section>
     </main >
   )
 };
