@@ -10,22 +10,26 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
   const [apiData, setApiData] = useState([]);
   const [spin, setSpin] = useState(false);
 
+  const modifyTypedInput = () => {
+    const arrFromInput = [];
+    searchStore.typedInput.split('').map(arrItem => {
+      if(arrItem === ' ') arrItem = '+';
+      arrFromInput.push(arrItem);
+    })
+    return arrFromInput.join('');
+  };
+
   const searchFunc = async(filterBtn = false) => {
     if(searchStore.typedInput){
-      const arrFromInput = [];
-      searchStore.typedInput.split('').map(arrItem => {
-        if(arrItem === ' ') arrItem = '+';
-        arrFromInput.push(arrItem);
-      })
-      let modifiedTypedInput = arrFromInput.join('');
       setSpin(true);
       let dataArr;
       try{
         let res;
+        
         if(filterBtn === false){
-          res = await fetch('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
+          res = await fetch('/search/?term='+ modifyTypedInput() + searchStore.clickedFilter);
         }else{
-          res = await fetch('/search/?term='+ modifiedTypedInput + '&media=' + filterBtn);
+          res = await fetch('/search/?term='+ modifyTypedInput() + '&media=' + filterBtn);
         }
         let data = await res.json();
         dataArr = data.results;
