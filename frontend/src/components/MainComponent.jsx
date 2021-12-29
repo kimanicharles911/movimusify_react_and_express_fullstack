@@ -3,27 +3,16 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './MainComponent.css';
 import {useState} from 'react';
-import {SearchComponent} from './index.js';
+import {SearchComponent, FiltersComponent} from './index.js';
 
 const MainComponent = ({favouritesProp, setFavouritesProp}) => {
 
-  const filterBtnStyling = "btn btn-outline-secondary btn-sm mb-1 mx-1";
   const [searchStore, setSearchStore] = useState({
     typedInput: '',
     clickedFilter: '',
   });
   const [apiData, setApiData] = useState([]);
   const [spin, setSpin] = useState(false);
-
-  const filterBtnClickHandler = (filterBtn) => {
-    setSearchStore((prevState) => {
-      return{
-        ...prevState,
-        clickedFilter: `&media=${filterBtn}`
-      }
-    })
-    searchFunc(filterBtn);
-  };
 
   const searchFunc = async(filterBtn = false) => {
     if(searchStore.typedInput){
@@ -84,31 +73,7 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
   return (
     <main className="container fluid text-center">
       <SearchComponent searchStoreProp={searchStore} setSearchStoreProp={setSearchStore}spinProp={spin} setSpinProp={setSpin} searchFuncProp={searchFunc}/>
-      <section id="filters-section">
-        <p>Click to Apply Filters jack johnson</p>
-        <div className="btn-group flex-wrap" id="btn-group" role="group">
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioMovie"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioMovie" onClick={() => {filterBtnClickHandler("movie")}}>movie</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioMusic"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioMusic" onClick={() => {filterBtnClickHandler("music")}}>music</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioMusicVideo"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioMusicVideo" onClick={() => {filterBtnClickHandler("musicVideo")}}>music video</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioPodcast"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioPodcast" onClick={() => {filterBtnClickHandler("podcast")}}>podcast</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioAudiobook"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioAudiobook" onClick={() => {filterBtnClickHandler("audiobook")}}>audiobook</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioShortFilm"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioShortFilm" onClick={() => {filterBtnClickHandler("shortFilm")}}>short film</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioTvShow"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioTvShow" onClick={() => {filterBtnClickHandler("tvShow")}}>TV show</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioSoftware"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioSoftware" onClick={() => {filterBtnClickHandler("software")}}>software</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioEbook"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioEbook" onClick={() => {filterBtnClickHandler("ebook")}}>ebook</label>
-          <input type="radio" className="btn-check" name="btnradio" id="btnradioAll"/>
-          <label className={filterBtnStyling}  htmlFor="btnradioAll" onClick={() => {filterBtnClickHandler("all")}}>All</label>
-        </div>
-      </section>
+      <FiltersComponent setSearchStoreProp={setSearchStore} searchFuncProp={searchFunc}/>
       <hr />
       <section className="row justify-content-md-center mt-3 mb-3 gy-3">
         {apiData.length > 0 ?

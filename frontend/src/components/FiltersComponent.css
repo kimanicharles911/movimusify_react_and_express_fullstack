@@ -1,0 +1,13 @@
+#filters-section > .btn{
+  color: #6c757d;
+  background-color: #fff;
+  box-shadow: none;
+}
+#filters-section > .trial-btn{
+  color: #fff;
+  background-color: #008075;
+  box-shadow: none;
+}
+#btn-group > label{
+  border-radius: 0.25rem;
+}
