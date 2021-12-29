@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavouritesComponent renders correctly 1`] = `
+<main
+  className="container fluid text-center"
+>
+  <section
+    className="row justify-content-md-center mt-3 mb-3 gy-3"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="card mb-3"
+        style={
+          Object {
+            "maxWidth": "540px",
+          }
+        }
+      >
+        <div
+          className="row g-0"
+        >
+          <div
+            className="col-md-4"
+          >
+            <img
+              alt="media art image"
+              className="img-fluid rounded-start"
+            />
+          </div>
+          <div
+            className="col-md-8"
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title"
+              >
+                <strong />
+                 by 
+              </h5>
+              <p
+                className="card-text"
+              >
+                Cost: $
+                 Dollars
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                Genre: 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted"
+                >
+                  Kind: 
+                </small>
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted small-like-tag"
+                  onClick={[Function]}
+                >
+                  Like
+                  <a
+                    className="nav-link like-icons"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-heart fa-w-16 font-awesome-icon-component"
+                      data-icon="heart"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </a>
+                </small>
+              </p>
+              <p
+                className="card-text"
+              >
+                Description: 
+                 
+                Not available.
+                 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                Long Description: 
+                Not available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="card mb-3"
+        style={
+          Object {
+            "maxWidth": "540px",
+          }
+        }
+      >
+        <div
+          className="row g-0"
+        >
+          <div
+            className="col-md-4"
+          >
+            <img
+              alt="media art image"
+              className="img-fluid rounded-start"
+            />
+          </div>
+          <div
+            className="col-md-8"
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title"
+              >
+                <strong />
+                 by 
+              </h5>
+              <p
+                className="card-text"
+              >
+                Cost: $
+                 Dollars
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                Genre: 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted"
+                >
+                  Kind: 
+                </small>
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted small-like-tag"
+                  onClick={[Function]}
+                >
+                  Like
+                  <a
+                    className="nav-link like-icons"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-heart fa-w-16 font-awesome-icon-component"
+                      data-icon="heart"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </a>
+                </small>
+              </p>
+              <p
+                className="card-text"
+              >
+                Description: 
+                 
+                Not available.
+                 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                Long Description: 
+                Not available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="card mb-3"
+        style={
+          Object {
+            "maxWidth": "540px",
+          }
+        }
+      >
+        <div
+          className="row g-0"
+        >
+          <div
+            className="col-md-4"
+          >
+            <img
+              alt="media art image"
+              className="img-fluid rounded-start"
+            />
+          </div>
+          <div
+            className="col-md-8"
+          >
+            <div
+              className="card-body"
+            >
+              <h5
+                className="card-title"
+              >
+                <strong />
+                 by 
+              </h5>
+              <p
+                className="card-text"
+              >
+                Cost: $
+                 Dollars
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                Genre: 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted"
+                >
+                  Kind: 
+                </small>
+              </p>
+              <span>
+                 | 
+              </span>
+              <p
+                className="card-text"
+              >
+                <small
+                  className="text-muted small-like-tag"
+                  onClick={[Function]}
+                >
+                  Like
+                  <a
+                    className="nav-link like-icons"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-heart fa-w-16 font-awesome-icon-component"
+                      data-icon="heart"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </a>
+                </small>
+              </p>
+              <p
+                className="card-text"
+              >
+                Description: 
+                 
+                Not available.
+                 
+              </p>
+              <br />
+              <p
+                className="card-text"
+              >
+                Long Description: 
+                Not available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+`;

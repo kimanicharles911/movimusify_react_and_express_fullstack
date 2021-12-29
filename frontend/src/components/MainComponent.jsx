@@ -25,7 +25,6 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
       let dataArr;
       try{
         let res;
-        
         if(filterBtn === false){
           res = await fetch('/search/?term='+ modifyTypedInput() + searchStore.clickedFilter);
         }else{
