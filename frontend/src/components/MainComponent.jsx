@@ -3,10 +3,10 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './MainComponent.css';
 import {useState} from 'react';
+import {SearchComponent} from './index.js';
 
 const MainComponent = ({favouritesProp, setFavouritesProp}) => {
 
-  // https://itunes.apple.com/search?term=jack+johnson&media=movie
   const filterBtnStyling = "btn btn-outline-secondary btn-sm mb-1 mx-1";
   const [searchStore, setSearchStore] = useState({
     typedInput: '',
@@ -14,16 +14,6 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
   });
   const [apiData, setApiData] = useState([]);
   const [spin, setSpin] = useState(false);
-
-  const typedInputChangeHandler = (event) => {
-    setSpin(false);
-    setSearchStore((prevState) => {
-      return{
-        ...prevState,
-        typedInput: event.target.value
-      }
-    })
-  };
 
   const filterBtnClickHandler = (filterBtn) => {
     setSearchStore((prevState) => {
@@ -54,9 +44,6 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
         }
         let data = await res.json();
         dataArr = data.results;
-        console.log('dataArr ', dataArr);
-        console.log('/search/?term='+ modifiedTypedInput + searchStore.clickedFilter);
-        console.log('/search/?term='+ modifiedTypedInput + '&media=' + filterBtn);
       }catch(err){
         console.error('err ',err);
         dataArr = [];
@@ -93,26 +80,10 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
       apiData[dataIndex].likeStatus = true;
     }
   };
-  // https://itunes.apple.com/search?term=jack+johnson&media=movie
-  // jack johnson
 
   return (
     <main className="container fluid text-center">
-      <section className="row justify-content-md-start mt-3 mb-3 gy-3">
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">What</span>
-          <input type="text" className="form-control" placeholder="movie, music, podcast, audiobook, short film, TV show, software, ebook" aria-label="" aria-describedby="basic-addon1" value={searchStore.typedInput} onChange={typedInputChangeHandler}/>
-          &nbsp;
-          <button className="btn" type="button" id="search-btn" onClick={() => searchFunc()}>
-            {spin ? 
-              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              :
-              null
-            }
-            &nbsp;SEARCH
-          </button>
-        </div>
-      </section>
+      <SearchComponent searchStoreProp={searchStore} setSearchStoreProp={setSearchStore}spinProp={spin} setSpinProp={setSpin} searchFuncProp={searchFunc}/>
       <section id="filters-section">
         <p>Click to Apply Filters jack johnson</p>
         <div className="btn-group flex-wrap" id="btn-group" role="group">
