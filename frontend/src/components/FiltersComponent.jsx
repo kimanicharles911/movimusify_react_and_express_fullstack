@@ -16,7 +16,7 @@ const FiltersComponent = ({setSearchStoreProp, searchFuncProp}) => {
 
   return(
     <section id="filters-section">
-      <p>Click to Apply Filters jack johnson</p>
+      <p>Click to Apply Filters</p>
       <div className="btn-group flex-wrap" id="btn-group" role="group">
         <input type="radio" className="btn-check" name="btnradio" id="btnradioMovie"/>
         <label className={filterBtnStyling}  htmlFor="btnradioMovie" onClick={() => {filterBtnClickHandler("movie")}}>movie</label>
