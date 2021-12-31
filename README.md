@@ -1,5 +1,5 @@
 
-<h1 align="center"><a href="https://emmethubgithubprojectsmern.herokuapp.com" target="_blank">🌐 emmethub github projects react and express fullstack</a></h1>
+<h1 align="center"><a href="https://movimusifyreactexpressmern.herokuapp.com" target="_blank">🌐 movimusify react and express fullstack</a></h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/kimanicharles911/emmethub_nodejs_modules/blob/master/LICENSE.txt" target="_blank">
@@ -7,10 +7,10 @@
   </a>
 </p>
 
-> This is the repository of a fullstack web application. It enables Emmethub to view, create, edit and delete data and projects of it's github repositories. This is achieved using a Reactjs frontend, a Nodejs/Expressjs backend REST-API and JSON file database. It has been created using Reactjs, Expressjs, bootstrap and the axios http client. The REST-API manages how data on projects by Emmethub is changed. The comments the file app.js allow easy understanding of how it functions.
+> This is the repository of a fullstack web application. It enables users to search for various types of media content from the iTunes and Apple Books Store. They can also select their favourite content by liking. This is achieved using a Reactjs frontend and a Nodejs/Expressjs backend where the external 3rd party api from itunes is consumed. It has been created using Reactjs, Expressjs, bootstrap and the axios http client. It's security is enhanced by helmetjs. The comments the file app.js allow easy understanding of how it functions.
 
 ## Deployed at
-* https://emmethubgithubprojectsmern.herokuapp.com
+* https://movimusifyreactexpressmern.herokuapp.com
 
 ***
 ## Frontend
@@ -38,19 +38,19 @@ Nothing is done inside the frontend folder all building configuration is done in
 
 ## How It Was Built
 ##### Create React App
-```
+```sh
 npx create-react-app
 npm i --save bootstrap
 npm i --save react-bootstrap
-npm i --save react-router-bootstrap
-npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/react-fontawesome
 npm i --save @fortawesome/free-brands-svg-icons
 npm i --save @fortawesome/free-regular-svg-icons
-npm i --save font-awesome
+npm i --save @popperjs/core
 npm i --save axios
-npm i --save helmet
+npm i --save react-router-dom
+npm i --save react-test-renderer
+npm i -D --exact jest-watch-typeahead@0.6.5
 ```
 ##### Dependencies
 * Bootstrap
@@ -58,32 +58,40 @@ npm i --save helmet
 * fortawesome
 * font-awesome
 * axios
+* React Router Dom
+* React Test Renderer
+* jest-watch-typeahead
 
 ##### src folder structure
 ```
 src/
   Components/
-    modals/
-      CreateModalComponent.css
-      CreateModalComponent.jsx
-      DeleteModalComponent.jsx
-      EditModalComponent.css
-      EditModalComponent.jsx
-      ViewModalComponent.css
-      ViewModalComponent.jsx
-    MainComponent.css 
     MainComponent.jsx
     NavbarComponent.css
     NavbarComponent.jsx
+    FavouritesComponent.jsx
+    ResultsComponent.jsx
+    FiltersComponent.css
+    SearchComponent.css
+    FiltersComponent.jsx
+    SearchComponent.jsx
+    ResultsComponent.css
+    index.js
+  __tests__/
+    __snapshots__/
+      FavouritesComponent.test.js.snap
+    FavouritesComponent.test.js
+    UnitTests.test.js
+  modules/
     index.js
   images/
-    index.js
     nav-icon.svg
+    spurgeon.png
+    index.js
   App.css
-  App.js
-  App.test.js
+  App.jsx
   index.css
-  logo.svg
+  index.js
   reportWebVitals.js
   setupTests.js
 ```
@@ -93,16 +101,16 @@ src/
 
 * It is located in the root of this repository.
 #### Deployed at
-* https://emmethubgithubprojectsmern.herokuapp.com/api
+* https://movimusifyreactexpressmern.herokuapp.com/search
 
 #### API Usage
 | HTTP method      |   EndPoint   |   Public Access   |   Example   |
 | ---- |:---- |:---- |:---- |
-| GET     | /api/    |  TRUE    |  https://emmethubgithubprojectsmern.herokuapp.com/api/    |
-| GET     | /api?id=2    |  TRUE    |  https://emmethubgithubprojectsmern.herokuapp.com/api?id=2    |
-| POST     | /api/repositories/new/    |  TRUE    |  https://emmethubgithubprojectsmern.herokuapp.com/api/repositories/new/    |
-| PUT     | /api/repository?id=2    |  TRUE    |  https://emmethubgithubprojectsmern.herokuapp.com/api/repository?id=2    |
-| DELETE     | /api/repository?id=2    |  TRUE    |  https://emmethubgithubprojectsmern.herokuapp.com/api/repository?id=2    |
+| GET     | /search/    |  TRUE    |  https://movimusifyreactexpressmern.herokuapp.com/search/    |
+
+#### Security
+* Helmetjs is used to secure this web application. I changed the script-src and img-src content security policy directives to allow usage of my custom javascript modules and to rendering of images received by the external 3rd party API.
+
 
 #### Setup/Installation Requirements
 
@@ -131,28 +139,34 @@ npm run dev
 curl http://localhost:8080 --include
 ```
 
-## No Data/JSON returned ?
-> If while using the GET endpoint no JSON data is returned it means that someone used the DELETE endpoint to delete all the data provided by this API. Hence you can:
-1.Clone this repo and run it locally, that way it will work well with all the original data.
-2.or use the projectsData.json file in this repo together with the PUT method to add data to the hosted api. 
-
 ## How It Was Built
 ##### Node
 ```sh
 npm init
-npm i express
-npm i nodemon --save-dev
-npm i --save path
+npm i --save nodemon
+npm i --save express
+npm i --save helmet
+npm i --save axios
+npm i --save-dev chai
+npm i --save-dev mocha
 ```
 
 ##### Dependencies
 * Node
 * Express
 * Nodemon
-* Path
+* Helmet
+* axios
+* chai
+* mocha
 
 ##### Deploy to Heroku
 * Add this in package.json
+```sh
+"scripts": {
+  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+}
+```
 ```sh
 "engines": {
   "node": "14.15.1",
@@ -194,25 +208,28 @@ git push heroku master
 
 ### folder structure
 ```
-app.js 
-package-lock.json      
-projectsData.json
-LICENSE.txt  
-package.json  
-permaProjectData.json  
+config/
+  index.js
+test/
+  Async.test.js
+app.js
+LICENSE.txt
+package-lock.json
+package.json
+Procfile
 README.md
 ```
 
 ## License and Copyright Information.
 
-This project is MIT licensed see [my MIT LICENSE](https://github.com/kimanicharles911/emmethub_github_projects_react_and_express_fullstack/blob/master/LICENSE.txt) for details.<br />
-Copyright © 2021 [Charles Kimani & Emmethub](https://github.com/kimanicharles911).
+This project is MIT licensed see [my MIT LICENSE](https://github.com/kimanicharles911/movimusify_react_and_express_fullstack/blob/master/LICENSE.txt) for details.<br />
+Copyright © 2022 [Charles Kimani & Emmethub](https://github.com/kimanicharles911).
 
 ### Author
 
 ###### 👤 **Charles Kimani**
 
-* Website: https://emmethub.com/founder
+* Website: [author.emmethub.com](https://author.emmethub.com)
 * Github: [@kimanicharles911](https://github.com/kimanicharles911)
 * LinkedIn: [@kimanicharles](https://linkedin.com/in/kimanicharles)
 
