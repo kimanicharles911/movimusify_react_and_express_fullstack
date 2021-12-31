@@ -15,6 +15,10 @@ https://youtu.be/ZbtZ_79UmjI
 
 npm i --save axios
 npm i --save stream
+npm i --save-dev chai
+npm i --save-dev mocha
+npm i --save-dev chai-http
+npm i --save-dev supertest
 
 Before Saturday 18/12/21
 ==========================>
