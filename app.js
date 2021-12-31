@@ -10,7 +10,7 @@ app.use(
     useDefaults: true,
     directives: {
       "script-src": ["'self'", "'unsafe-inline'", "example.com"],
-      "img-src": ["'self'", "data:"]
+      "img-src": ["'none'"]
     }
   })
 )
