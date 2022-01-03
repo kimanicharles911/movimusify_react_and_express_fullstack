@@ -3,6 +3,13 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import './ResultsComponent.css';
 
+/* 
+  * 
+  * I imported FontAwesomeIcon component from @fortawesome/react-fontawesome.
+  * I imported the two faHeart components @fortawesome library.
+  * I imported the CSS file for this component.
+*/
+
 const ResultsComponent = ({apiDataProp, likeUnlikeFuncProp, spinProp}) => {
 
   return(
@@ -47,3 +54,12 @@ const ResultsComponent = ({apiDataProp, likeUnlikeFuncProp, spinProp}) => {
   )
 }
 export default ResultsComponent;
+/* 
+  * I created the ResultsComponent.
+  * I wrote the JSX for this component.
+  * The JSX has a condition that divides the JSX into three main parts:
+  * 1. The first part that dynamically renders the media returned from the backend 3rd party API in a manner that the client can relate with. It is only returned after the user has searched for media.
+  * 2. The second part that starts the loading spinner inidcator immediately the user click on the search or filter button.
+  * 3. The third part that displays a relevant message if the user has not searched for media yet.
+  * I then export the ResultsComponent.
+*/

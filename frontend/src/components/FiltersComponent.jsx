@@ -1,4 +1,5 @@
 import './FiltersComponent.css';
+// I imported the css file for this component.
 
 const FiltersComponent = ({setSearchStoreProp, searchFuncProp}) => {
 
@@ -13,6 +14,13 @@ const FiltersComponent = ({setSearchStoreProp, searchFuncProp}) => {
     })
     searchFuncProp(filterBtn);
   };
+
+  /* 
+    * I created the FiltersComponent and destructured the setSearchStoreProp and searchFuncProp.
+    * I created the filterBtnStyling variable and assigned it the bootstrap class I want to apply to the filter buttons.
+    * I created a filterBtnClickHandler function that takes in a filterBtn as a parameter.
+    * This function sets the media type to be fetched from the API. Iy also calls the searchFuncProp which immediately fetches the media from the API.  
+  */
 
   return(
     <section id="filters-section">
@@ -43,3 +51,7 @@ const FiltersComponent = ({setSearchStoreProp, searchFuncProp}) => {
   )
 }
 export default FiltersComponent;
+/* 
+  * I wrote the JSX for the FiltersComponent. I heavily utilised the radio button groups from bootstrap found here https://getbootstrap.com/docs/5.1/components/button-group/#checkbox-and-radio-button-groups
+  * When each button is clicked it calls the filterBtnClickHandler function and passes the type of media as the parameter value.
+*/

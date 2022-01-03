@@ -8,6 +8,7 @@
 /frontend/.codesandbox
 /frontend/.vscode
 /frontend/.env
+/frontend/src/.vscode
 
 # dependencies
 /frontend/node_modules

@@ -6,10 +6,11 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {Link} from 'react-router-dom';
 
 /* 
+  * I imported FontAwesomeIcon component from @fortawesome/react-fontawesome
   * I imported the Navbar, Container, Nav, Row components from react-bootstrap.
   * I imported the css style file i.e NavbarComponent.css.
-  * I imported the FontAwesomeIcon component and faPlus icon which are all products of the font-awesome library.
-  * I imported the CreateModalComponent component from the components folder.
+  * I imported the faHeart and faGithub components @fortawesome library.
+  * I imported the Link component from the react-router-dom.
 */
 
 const NavbarComponent = () => {
@@ -30,7 +31,7 @@ const NavbarComponent = () => {
                   <ul className="navbar-nav me-auto mb-2 mb-sm-0">           
                   </ul>
                   <ul className="d-flex navbar-nav me-2 mb-2 mb-sm-0">
-                    {/* Favourites Link */}
+                    {/* Favourites Page Link/Button */}
                     <Link to="/favourites" id="nav-link-class">
                       <FontAwesomeIcon icon={faHeart} className="font-awesome-icons" id="heart-icon"/>&nbsp;Favourites
                     </Link>
@@ -52,9 +53,7 @@ export default NavbarComponent;
 
 /* 
   * I created a Navbar component.
-  * I then passed then destructured the renderAgentProp and setRenderAgentProp received from the App component.
-  * I then created the navbar JSX that heavily relies on bootstrap and react-bootstrap libraries.
-  * The first major JSX item is the Create Project Button that is used to open the Create Project Modal.
-  * The only wrapped component is the CreateModalComponent. I pass the renderAgentProp and setRenderAgentProp to it also.
+  * I then wrote the navbar JSX that heavily relies on bootstrap and react-bootstrap libraries.
+  * The first major JSX item is the Favourites Page Link/Button.
   * The second major JSX item is the Github Repository Link Button that redirects the user to this Application's source code repository.
 */

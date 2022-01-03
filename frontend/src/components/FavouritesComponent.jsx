@@ -48,3 +48,14 @@ const FavouritesComponent = ({favouritesProp, setFavouritesProp}) => {
 };
 
 export default FavouritesComponent;
+
+/* 
+  * I first imported the FontAwesomeIcon component from the @fortawesome library
+  * I then imported the faHeart component from @fortawesome library
+  * I then created the FavouritesComponent and destructured the favouritesProp and setFavouritesProp.
+  * I then wrote the unlikeFunc which receives the array index of a favourite item as it's parameter. It then removes the unliked media from the favouritesProp which trigger changes in the UI.
+  * I then wrote the JSX of the FavouritesComponent.
+  * If one or more favourites exist a map JS function is used to render the JSX for each of the favourites and dynamically sets the data of every favourite.
+  * If there are no favourites the user is shown the appropriate message.
+  * I then export the FavouritesComponent.
+*/

@@ -1,6 +1,10 @@
-import { expectCt } from 'helmet';
 import renderer from 'react-test-renderer';
 import {FavouritesComponent} from '../components';
+
+/* 
+  * I imported the renderer module from react-test-renderer to enable making of snapshots tests.
+  * I imported the FavouritesComponent from the components folder.
+*/
 
 it('FavouritesComponent renders correctly', () => {
   const favourites = [
@@ -18,3 +22,10 @@ it('FavouritesComponent renders correctly', () => {
   const tree = renderer.create(<FavouritesComponent favouritesProp={favourites} setFavouritesProp={setFavourites}/>).toJSON();
   expect(tree).toMatchSnapshot();
 })
+/* 
+  * I wrote a snapshot test for the FavouritesComponent.
+  * I created a dummy favourites vriable that will be used as the favouritesProp by the FavouritesComponent.
+  * I also created a dummy setFavourites function that will be used as the setFavouritesProp by the FavouritesComponent.
+  * I then rendered the FavouritesComponent and called toJSON on it.
+  * I then wrote the code that compares the tree to the snapshot.
+*/

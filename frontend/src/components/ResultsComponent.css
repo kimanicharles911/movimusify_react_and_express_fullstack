@@ -7,9 +7,6 @@
 .font-awesome-icon-component{
   color: #6c757d;
 }
-.like-icons > .fas{
-  color: #008075;
-}
 .like-icons:hover{
   color: inherit;
 }
@@ -21,3 +18,11 @@
 .small-like-tag{
   cursor: pointer;
 }
+/* 
+  * I first changed the display property of the like icons from block to inline-block.
+  * Then I changed the color of the like icons.
+  * Then I changed the color of the font-awesome-icon-component.
+  * Then I changed the color of the like-icons when hovered upon.
+  * Then I changed the border-top-color, border-bottom-color, border-left-color of the spinner-border.
+  * Then I changed the cursor property of the small-like-tag.
+*/
