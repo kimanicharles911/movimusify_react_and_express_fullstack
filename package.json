@@ -25,6 +25,7 @@
   "homepage": "https://github.com/kimanicharles911/movimusify_react_and_express_fullstack#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "nodemon": "^2.0.15"

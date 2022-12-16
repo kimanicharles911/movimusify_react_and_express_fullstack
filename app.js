@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+import cors from 'cors';
 const port = require('./config');
+import corsOptions from './config/corsOptions.module.js';
+app.use(cors(corsOptions));
 app.use(express.json());
 const axios = require('axios');
 const helmet = require('helmet');

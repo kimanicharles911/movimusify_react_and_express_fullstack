@@ -9,6 +9,7 @@
 /frontend/.vscode
 /frontend/.env
 /frontend/src/.vscode
+/frontend/build
 
 # dependencies
 /frontend/node_modules
