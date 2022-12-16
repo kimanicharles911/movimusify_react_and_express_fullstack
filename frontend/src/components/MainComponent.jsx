@@ -26,9 +26,9 @@ const MainComponent = ({favouritesProp, setFavouritesProp}) => {
       try{
         let res;
         if(filterBtn === false){
-          res = await fetch('/search/?term='+ modifyTypedInput() + searchStore.clickedFilter);
+          res = await fetch('https://movimusifyapi.cyclic.app/search/?term='+ modifyTypedInput() + searchStore.clickedFilter);
         }else{
-          res = await fetch('/search/?term='+ modifyTypedInput() + '&media=' + filterBtn);
+          res = await fetch('https://movimusifyapi.cyclic.app/search/?term='+ modifyTypedInput() + '&media=' + filterBtn);
         }
         let data = await res.json();
         dataArr = data.results;
