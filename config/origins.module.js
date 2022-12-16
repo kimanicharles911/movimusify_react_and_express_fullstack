@@ -10,4 +10,4 @@ const origins = [
   'https://dapper-platypus-da21dc.netlify.app',
 ];
 
-export default origins;
+module.exports = { origins };
